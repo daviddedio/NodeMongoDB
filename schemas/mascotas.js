@@ -5,7 +5,7 @@ const mascotaSchema = new mongoose.Schema(
         nombre: { type: String, required: true },
         tipo: {
             type: String, required: true,
-            enum: ['perro', 'gato', 'conejo']
+            enum: ['dog', 'cat', 'bird']
         },
         raza: { type: String },
         edad: { 
