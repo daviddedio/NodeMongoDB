@@ -4,9 +4,11 @@ import routeMascotas from './routes/mascotas.js'
 import routeUsuarios from './routes/usuarios.js'
 import bodyParser from 'body-parser'
 import dbClient from './config/dbClient.js'
+import cors from 'cors'
 
 const app = express()
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
