@@ -5,7 +5,6 @@ import { verificarToken } from '../helpers/autenticacion.js'
 const router = express.Router()
 
 router.get('/', mascotaController.findAll)
-router.post('/', mascotaController.create)
 router.post('/many', mascotaController.createMany)
 router.delete('/all',mascotaController.deleteAll)
 
@@ -13,6 +12,7 @@ router.route('/:id')
     .get(mascotaController.findOne)
     .put(verificarToken, mascotaController.update)
     .delete(verificarToken,mascotaController.delete)
+    .post(verificarToken, mascotaController.create)
 
 
 export default router
