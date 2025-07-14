@@ -7,13 +7,12 @@ const router = express.Router()
 router.get('/', mascotaController.findAll)
 router.post('/many', mascotaController.createMany)
 router.delete('/all',mascotaController.deleteAll)
+router.post('/', verificarToken, mascotaController.create)
 
 router.route('/:id')
     .get(mascotaController.findOne)
     .put(verificarToken, mascotaController.update)
     .delete(verificarToken,mascotaController.delete)
-    .post(verificarToken, mascotaController.create)
-
 
 export default router
 
