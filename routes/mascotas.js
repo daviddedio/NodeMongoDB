@@ -8,6 +8,7 @@ router.get('/', mascotaController.findAll)
 router.post('/many', mascotaController.createMany)
 router.delete('/all',mascotaController.deleteAll)
 router.post('/', verificarToken, mascotaController.create)
+router.put('/:id/adopt', verificarToken, mascotaController.adopt)
 
 router.route('/:id')
     .get(mascotaController.findOne)

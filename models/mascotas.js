@@ -26,6 +26,14 @@ class mascotaModel {
         {_id: new mongoose.Types.ObjectId(id)}, mascota, {new:true}
     )}
 
+    async adopt(id, adopto){
+        console.log(adopto)
+        return await Mascotas.findByIdAndUpdate(id,{
+                responsable:adopto,
+                adoptado:true
+        }, {new:true})
+    }
+
     async delete(id) 
     {return await Mascotas.findOneAndDelete(
         {_id: new mongoose.Types.ObjectId(id)}

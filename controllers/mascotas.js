@@ -16,7 +16,7 @@ class mascotasController {
             const data = await mascotasModel.createMany(req.body)
             res.status(200).json(data)
         } catch (error) {
-            res.status(500).json({ msg: error.message })
+            res.status(500).json(error)
         }
     }
 
@@ -26,7 +26,18 @@ class mascotasController {
             const data = await mascotasModel.update(id, req.body)
             res.status(200).json(data)
         }
-        catch (error) { res.status(500).json({ msg: error.message }) }
+        catch (error) { res.status(500).json(error) }
+    }
+
+    async adopt(req, res){
+        try{
+            const {id} = req.params
+            console.log(id)  
+            const data = await mascotasModel.adopt(id, req.body.responsable)
+            res.status(200).json(data)
+        }catch(error){
+            res.status(500).json(error)
+        }
     }
 
     async delete(req, res) {
@@ -35,7 +46,7 @@ class mascotasController {
             const data = await mascotasModel.delete(id)
             res.status(200).json(data)
         }
-        catch (error) { res.status(500).json({ msg: error.message }) }
+        catch (error) { res.status(500).json(error) }
     }
 
     async deleteAll(req, res) {
@@ -43,7 +54,7 @@ class mascotasController {
             const data = await mascotasModel.deleteAll()
             res.status(200).json(data)
         }
-        catch (error) { res.status(500).json({ msg: error.message }) }
+        catch (error) { res.status(500).json(error) }
     }
 
     async findAll(req, res) {
@@ -51,7 +62,7 @@ class mascotasController {
             const data = await mascotasModel.getAll()
             res.status(200).json(data)
         }
-        catch (error) { res.status(500).json({ msg: error.message }) }
+        catch (error) { res.status(500).json(error) }
     }
 
     async findOne(req, res) {
@@ -60,7 +71,7 @@ class mascotasController {
             const data = await mascotasModel.getOne(id)
             res.status(200).json(data)
         }
-        catch (error) { res.status(500).json({ msg: error.message }) }
+        catch (error) { res.status(500).json(error) }
     }
 }
 
