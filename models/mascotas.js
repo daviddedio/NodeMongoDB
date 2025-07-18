@@ -27,10 +27,11 @@ class mascotaModel {
     )}
 
     async adopt(id, adopto){
-        console.log(adopto)
+        console.log("adoptado: " + adopto.adoptado)
+        console.log("nombre: " + adopto.responsable)
         return await Mascotas.findByIdAndUpdate(id,{
-                responsable:adopto,
-                adoptado:true
+                responsable:adopto.responsable,
+                adoptado:adopto.adoptado
         }, {new:true})
     }
 
